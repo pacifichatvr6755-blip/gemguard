@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Denied</title>
+    <style>
+        :root {
+            --bg-main: #0b0f19;
+            --bg-card: #151d30;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --guardian-blue: #0ea5e9;
+            --danger: #ef4444;
+            --border: #1e293b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .block-container {
+            width: 100%;
+            max-width: 550px;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        .icon-shield {
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.15) 0%, rgba(14, 165, 233, 0) 70%);
+            border: 2px solid var(--guardian-blue);
+            color: var(--guardian-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 1.75rem auto;
+            box-shadow: 0 0 15px rgba(14, 165, 233, 0.2);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.75rem;
+            background: linear-gradient(to right, #f1f5f9, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .details-box {
+            background-color: var(--bg-main);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-align: left;
+        }
+
+        .details-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .details-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .btn-action {
+            display: inline-block;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+            padding: 0.8rem 1.75rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+
+        .btn-action:hover {
+            background-color: var(--border);
+            border-color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="block-container">
+        <!-- Diamond/Shield representation for GemGuardian -->
+        <div class="icon-shield">♦</div>
+        <h1>Blocked by GemGuardian</h1>
+        <p>The network administrator has filtered this destination. Access is restricted under your current security policy rules.</p>
+        
+        <div class="details-box">
+            <div class="details-row">
+                <span>Protection Status:</span>
+                <span style="color: var(--danger);">Enforced</span>
+            </div>
+            <div class="details-row">
+                <span>Security Engine:</span>
+                <span>GemGuardian Enterprise v5.0</span>
+            </div>
+            <div class="details-row">
+                <span>Filter Rule:</span>
+                <span>Restricted URL Policy</span>
+            </div>
+        </div>
+
+        <button class="btn-action" onclick="window.history.back();">Go Back</button>
+    </div>
+
+</body>
+</html>
