@@ -120,9 +120,8 @@
 <body>
 
     <div class="block-container">
-        <!-- Diamond/Shield representation for GemGuardian -->
         <div class="icon-shield">♦</div>
-        <h1>Blocked by GemGuardian</h1>
+        <h1 id="blockHeading">Blocked by GemGuardian</h1>
         <p>The network administrator has filtered this destination. Access is restricted under your current security policy rules.</p>
         
         <div class="details-box">
@@ -135,13 +134,28 @@
                 <span>GemGuardian Enterprise v5.0</span>
             </div>
             <div class="details-row">
-                <span>Filter Rule:</span>
-                <span>Restricted URL Policy</span>
+                <span>Target Resource:</span>
+                <span id="targetResource">Restricted URL Policy</span>
             </div>
         </div>
 
         <button class="btn-action" onclick="window.history.back();">Go Back</button>
     </div>
 
+    <script>
+        // Check for ?app= URL parameter on page load
+        const urlParams = new URLSearchParams(window.location.search);
+        const appName = urlParams.get('app');
+
+        if (appName) {
+            // Clean up text input to prevent basic HTML injection
+            const cleanAppName = appName.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+            
+            // Update heading and detail card with dynamic app string
+            document.getElementById('blockHeading').textContent = `${cleanAppName} is blocked!`;
+            document.getElementById('targetResource').textContent = cleanAppName;
+        }
+    </script>
 </body>
 </html>
+
